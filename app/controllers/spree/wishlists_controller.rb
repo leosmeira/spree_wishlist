@@ -13,7 +13,7 @@ class Spree::WishlistsController < Spree::StoreController
   end
 
   def index
-    @wishlists = spree_current_user.wishlists
+    @wishlists = spree_current_user.try(:wishlists).to_a
 
     respond_with(@wishlist)
   end
